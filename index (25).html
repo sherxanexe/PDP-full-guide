@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руководство по заполнению PDP (Personal Development Plan)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Russian font */
+        [id^="content-ru"] {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* English font */
+        [id^="content-en"] {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Kazakh keeps default */
+        [id^="content-kz"] {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e1f1ff 50%, #d1eaff 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 0;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .pdp-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 14px;
+            background: linear-gradient(135deg, #2D8CFF, #0078FF);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #2D8CFF;
+            background: white;
+            color: #2D8CFF;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 120px;
+            justify-content: space-between;
+        }
+
+        .dropdown-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45, 140, 255, 0.3);
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .dropdown-btn.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 2px solid #2D8CFF;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(45, 140, 255, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            min-width: 150px;
+            overflow: hidden;
+        }
+
+        .dropdown-content.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 500;
+            color: #2D8CFF;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: #e3f2ff;
+        }
+
+        .dropdown-item.selected {
+            background-color: #2D8CFF;
+            color: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem;
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2D8CFF, #0078FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .description-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .description-section h3 {
+            color: #2D8CFF;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .description-section p {
+            margin-bottom: 1.5rem;
+        }
+
+        .stages-list {
+            background: linear-gradient(135deg, #e3f2ff, #f0f8ff);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2D8CFF;
+        }
+
+        .stages-list ol {
+            padding-left: 1.5rem;
+        }
+
+        .stages-list li {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, #fff3cd, #fef7e0);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+
+        .warning-text {
+            font-weight: 600;
+        }
+
+        .guide-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .step-accordion {
+            margin-bottom: 0.8rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #2D8CFF, #0078FF);
+            color: white;
+            border: none;
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-button:hover {
+            background: linear-gradient(135deg, #0078FF, #004FCC);
+            transform: translateY(-1px);
+        }
+
+        .step-button.active {
+            background: linear-gradient(135deg, #0078FF, #004FCC);
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            flex: 1;
+            text-align: left;
+        }
+
+        .step-arrow {
+            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .step-button.active .step-arrow {
+            transform: rotate(180deg);
+        }
+
+        .step-content {
+            background: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .step-content.active {
+            max-height: 3000px;
+            padding: 1.5rem;
+        }
+
+        .step-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-highlight {
+            background: linear-gradient(120deg, #2D8CFF20 0%, #2D8CFF10 100%);
+            padding: 0.6rem;
+            border-radius: 8px;
+            border-left: 3px solid #2D8CFF;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .important-note {
+            background: linear-gradient(135deg, #2D8CFF, #0078FF);
+            color: white;
+            padding: 0.6rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            box-shadow: 0 3px 10px rgba(45, 140, 255, 0.3);
+        }
+
+        .step-image {
+            max-width: 100%;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            margin: 15px auto 25px;
+            box-shadow:
+                0 4px 20px 0 rgba(45, 140, 255, 0.16),
+                0 0px 0px 6px rgba(45, 140, 255, 0.06);
+            transition: box-shadow 0.2s, transform 0.2s;
+            border: 1.5px solid #e3f2ff;
+            display: block;
+            object-fit: contain;
+        }
+
+        .step-image:hover {
+            box-shadow:
+                0 8px 30px 2px rgba(45, 140, 255, 0.25),
+                0 0px 0px 10px rgba(45, 140, 255, 0.10);
+            transform: scale(1.02);
+        }
+
+        .substep {
+            margin: 1rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid #b3daff;
+        }
+
+        .substep h4 {
+            color: #0078FF;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #2D8CFF;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info p {
+            color: #0078FF;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-email {
+            color: #004FCC;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* English content specific styles */
+        #content-en .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        #content-en .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        #content-en .steps-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        #content-en .step-button {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Russian content specific styles */
+        #content-ru .hero-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        #content-ru .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        #content-ru .steps-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        #content-ru .step-button {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media (max-width: 1700px) {
+            .guide-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .hero-section, .description-section {
+                padding: 2rem 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .step-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dropdown-content {
+                right: 0;
+                left: auto;
+            }
+
+            .step-image {
+                max-height: 300px;
+                transform: none;
+            }
+
+            .step-image:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="pdp-logo">PDP</div>
+                <h2 style="color: #2D8CFF; margin-left: 0.5rem;">Air Astana Training Academy</h2>
+            </div>
+            <div class="language-dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown()">
+                    <span id="selected-language">Русский</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-content" id="language-dropdown">
+                    <div class="dropdown-item selected" onclick="switchLanguage('ru', 'Русский')">Русский</div>
+                    <div class="dropdown-item" onclick="switchLanguage('en', 'English')">English</div>
+                    <div class="dropdown-item" onclick="switchLanguage('kz', 'Қазақша')">Қазақша</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Russian Content -->
+        <div id="content-ru">
+            <div class="hero-section">
+                <h1 class="hero-title">PDP Manual</h1>
+                <p class="hero-subtitle">Personal Development Plan - Руководство по заполнению плана личного развития</p>
+            </div>
+
+            <div class="description-section">
+                <h3>О программе PDP</h3>
+                <p>В этом разделе вы найдете подробную информацию о том, как правильно заполнять PDP (Personal Development Plan) - план личного развития. Руководство предоставляет пошаговые инструкции и рекомендации, чтобы помочь вам эффективно заполнить свой PDP и использовать его в качестве инструмента для достижения ваших личных и профессиональных целей.</p>
+
+                <p>PDP является инструментом самоанализа и планирования, который позволяет людям осознать свои сильные и слабые стороны, определить области, в которых они хотят развиваться, и разработать конкретные шаги для достижения своих целей. Он помогает создать структуру и направление для личного и профессионального роста, а также обеспечивает фокус и мотивацию в процессе развития.</p>
+
+                <p><strong>Процесс работы с PDP занимает весь год, и делится на 3 этапа:</strong></p>
+                <div class="stages-list">
+                    <ol>
+                        <li><strong>Первый этап</strong> происходит в начале года, когда вы встречаетесь со своим руководителем и ставите цели по саморазвитию на текущий год.</li>
+                        <li><strong>Второй этап</strong> начинается в середине лета, когда половина пути уже пройдена. Вместе со своим руководителем вы обсуждаете прогресс – что уже удалось реализовать, а что еще предстоит сделать.</li>
+                        <li><strong>Третий этап</strong> запускается в ноябре-декабре, и его цель – подведение итогов прошедшего года.</li>
+                    </ol>
+                </div>
+
+                <p>Но это не значит, что между этапами ничего не нужно делать. Наоборот, в это время и происходит основная работа по саморазвитию – вы читаете книги, смотрите обучающие видео, применяете полученные знания и навыки на практике и т.д.</p>
+
+                <div class="warning">
+                    <p class="warning-text"><strong>Важно:</strong> заполнение PDP не является запросом на проведение обучения. Это ваш личный план развития. Обучение может являться одним из составляющих элементов плана. Подробнее об этом вы можете узнать в онлайн курсе в LMS.</p>
+                </div>
+
+                <p>Мы желаем вам успешного применения PDP в вашей работе и надеемся, что руководство станет полезным ресурсом для вашего развития. Если у вас возникнут вопросы или потребуется дополнительная поддержка, не стесняйтесь обращаться к нашей команде e-learning по адресу: <strong>elearning.team@airastana.com</strong>.</p>
+            </div>
+
+            <div class="guide-sections">
+                <!-- Access Section -->
+                <div class="guide-section">
+                    <h2 class="steps-title">Доступ к системе PDP</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'access-step-1-ru')">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Вход в KC HR</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="access-step-1-ru">
+                            <p class="step-text">PDP (Personal Development Plan) можно открыть через веб-сайт KC HR, в разделе <strong>"Self-service employee"</strong> – <strong>"My PDP"</strong>.</p>
+                            <img src="pdp-kc-hr-access.png" alt="Доступ к KC HR системе" class="step-image">
+                            <div class="step-highlight">
+                                Используйте раздел "Self-service employee" для доступа к своему PDP.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'access-step-2-ru')">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Выбор формы PDP</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="access-step-2-ru">
+                            <p class="step-text">В открывшемся окне есть список всех форм PDP за каждый год. Нажмите на нужную форму, чтобы открыть её (только после Appraisal).</p>
+                            <img src="pdp-forms-list.png" alt="Список форм PDP по годам" class="step-image">
+                            <div class="important-note">
+                                <strong>Важно:</strong> Форму PDP можно открыть только после завершения процедуры Appraisal.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'access-step-3-ru')">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Структура формы</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="access-step-3-ru">
+                            <p class="step-text">Форма PDP состоит из 3 частей:</p>
+                            <img src="pdp-form-structure.png" alt="Структура формы PDP с тремя разделами" class="step-image">
+                            <div class="substep">
+                                <h4>a. Вопросы сотрудника</h4>
+                                <p class="step-text">Раздел для ваших ответов о планах развития.</p>
+                            </div>
+                            <div class="substep">
+                                <h4>b. Вопросы руководителя</h4>
+                                <p class="step-text">Раздел для ответов вашего руководителя.</p>
+                            </div>
+                            <div class="substep">
+                                <h4>c. Компетенции</h4>
+                                <p class="step-text">Раздел выбора компетенций для развития.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- First Stage Section -->
+                <div class="guide-section">
+                    <h2 class="steps-title">Первый этап (начало года)</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stage1-step-1-ru')">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Ответы на вопросы</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stage1-step-1-ru">
+                            <p class="step-text">На первом этапе, в начале года, вам необходимо:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Ответить на 2 вопроса о вашем плане развития</li>
+                                <li>Выбрать компетенции для улучшения</li>
+                            </ul>
+                            <img src="pdp-employee-questions.png" alt="Вопросы для сотрудника в PDP" class="step-image">
+                            <div class="step-highlight">
+                                Пожалуйста, обратите внимание, что ваши результаты appraisal уже загружены в форму, и вам нужно выбирать темы на их основе.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stage1-step-2-ru')">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Выбор компетенций</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stage1-step-2-ru">
+                            <p class="step-text">Для компетенций с оценкой менее 2.6 обязательно выберите хотя бы одну тему. Чтобы выбрать тему, необходимо поставить галочку в поле <strong>"Employee choice"</strong>.</p>
+                            <img src="pdp-competence-selection.png" alt="Выбор компетенций в форме PDP" class="step-image">
+                            <div class="important-note">
+                                <strong>Рекомендация:</strong> Выбирайте для развития 1-2 компетенции (без обязательных компетенций по результатам Appraisal) и 3-4 темы всего.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stage1-step-3-ru')">
+                            <div class="step-number">6</div>
+                            <div class="step-title">Отправка руководителю</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stage1-step-3-ru">
+                            <p class="step-text">После заполнения вам необходимо отправить форму своему непосредственному руководителю для утверждения, нажав кнопку <strong>"Send for approval"</strong>.</p>
+                            <img src="pdp-send-approval.png" alt="Отправка формы на утверждение руководителю" class="step-image">
+                            <div class="step-highlight">
+                                Вы можете выбрать интересующие темы и нажать на них, чтобы перейти на страницу курса в LMS для получения дополнительной информации о курсе и записи.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manager Section -->
+                <div class="guide-section">
+                    <h2 class="steps-title">Для руководителей</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'manager-step-1-ru')">
+                            <div class="step-number">7</div>
+                            <div class="step-title">Доступ к PDP команды</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="manager-step-1-ru">
+                            <p class="step-text">Если вы руководитель, у вас есть доступ ко всем формам PDP вашей команды через <strong>"Self-service manager"</strong> – <strong>"My team PDP"</strong>.</p>
+                            <img src="pdp-manager-access.png" alt="Доступ руководителя к PDP команды" class="step-image">
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'manager-step-2-ru')">
+                            <div class="step-number">8</div>
+                            <div class="step-title">Работа с формой сотрудника</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="manager-step-2-ru">
+                            <p class="step-text">В форме вы увидите все ответы, введенные сотрудником. На этом этапе вам необходимо:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Ответить на 2 вопроса о развитии сотрудника</li>
+                                <li>Выбрать приоритетные области его/её развития</li>
+                                <li>Добавить комментарии к выбранным темам</li>
+                            </ul>
+                            <img src="pdp-manager-questions.png" alt="Вопросы для руководителя в PDP" class="step-image">
+                            <div class="step-highlight">
+                                Обратите внимание, что вы можете выбрать темы, отличающиеся от выбора сотрудника. Система автоматически выделит цветом взаимный выбор.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'manager-step-3-ru')">
+                            <div class="step-number">9</div>
+                            <div class="step-title">Добавление комментариев</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="manager-step-3-ru">
+                            <p class="step-text">Также вы можете добавить комментарии к каждой выбранной теме. Рекомендуется использовать это поле для уточнения деталей плана развития, например, добавления конкретных задач.</p>
+                            <img src="pdp-manager-comments.png" alt="Добавление комментариев руководителем" class="step-image">
+                            <div class="important-note">
+                                <strong>Настоятельно рекомендуется:</strong> Каждый руководитель и их сотрудник должны обсудить все комментарии, цели и выбор тем/компетенций для развития перед внесением записей в PDP.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subsequent Stages -->
+                <div class="guide-section">
+                    <h2 class="steps-title">Последующие этапы</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stages-step-1-ru')">
+                            <div class="step-number">10</div>
+                            <div class="step-title">Второй этап (середина года)</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stages-step-1-ru">
+                            <p class="step-text">В середине года начинается второй этап работы с PDP. Система отправит уведомление по электронной почте руководителю с просьбой встретиться с сотрудником для обсуждения прогресса.</p>
+                            <p class="step-text">Руководитель отвечает на 2 вопроса:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Что сотрудник успешно достиг за последние шесть месяцев</li>
+                                <li>Какие навыки еще нужно развивать</li>
+                            </ul>
+                            <img src="pdp-second-stage.png" alt="Второй этап работы с PDP" class="step-image">
+                            <div class="step-highlight">
+                                Если есть изменения в развитии сотрудника, план может быть изменен на этом этапе.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stages-step-2-ru')">
+                            <div class="step-number">11</div>
+                            <div class="step-title">Третий этап (конец года)</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stages-step-2-ru">
+                            <p class="step-text">Третий (и заключительный) этап заполнения формы начинается в конце года. Его цель - подвести итоги всего прогресса. Процесс полностью аналогичен второму этапу.</p>
+                            <p class="step-text">В конце года необходимо проверить, какие результаты развития были достигнуты согласно ранее заполненному плану.</p>
+                            <img src="pdp-third-stage.png" alt="Третий этап работы с PDP" class="step-image">
+                            <div class="important-note">
+                                <strong>Рекомендация:</strong> Эти результаты рекомендуется учитывать при заполнении следующего PDP для отслеживания прогресса, поскольку заполненные формы сохраняются.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stages-step-3-ru')">
+                            <div class="step-number">12</div>
+                            <div class="step-title">Завершение и скачивание</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stages-step-3-ru">
+                            <p class="step-text">Первый шаг в завершении Плана личного развития теперь завершен. Вы можете скачать нужную форму, нажав на неё один раз и нажав соответствующую кнопку в начале, затем распечатать её и приступить к выполнению всех шагов, указанных в плане.</p>
+                            <img src="pdp-download-form.png" alt="Скачивание завершенной формы PDP" class="step-image">
+                            <div class="step-highlight">
+                                После завершения заполнения форма будет отправлена обратно сотруднику для ознакомления со всеми комментариями.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="contact-info">
+                    <p>По вопросам обращайтесь:</p>
+                    <p class="contact-email">elearning.team@airastana.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="content-en" class="hidden">
+            <div class="hero-section">
+                <h1 class="hero-title">PDP Manual</h1>
+                <p class="hero-subtitle">Personal Development Plan - Complete Guide to Filling Out Your Personal Development Plan</p>
+            </div>
+
+            <div class="description-section">
+                <h3>About the PDP Program</h3>
+                <p>In this section, you will find detailed information on how to properly fill out the PDP (Personal Development Plan). The guide provides step-by-step instructions and recommendations to help you effectively complete your PDP and use it as a tool to achieve your personal and professional goals.</p>
+
+                <p>PDP is a self-analysis and planning tool that allows people to recognize their strengths and weaknesses, identify areas in which they want to develop, and develop specific steps to achieve their goals. It helps create structure and direction for personal and professional growth, as well as provides focus and motivation in the development process.</p>
+
+                <p><strong>The PDP process takes the whole year and is divided into 3 stages:</strong></p>
+                <div class="stages-list">
+                    <ol>
+                        <li><strong>The first stage</strong> occurs at the beginning of the year when you meet with your manager and set self-development goals for the current year.</li>
+                        <li><strong>The second stage</strong> begins in mid-summer when half the journey has been completed. Together with your manager, you discuss progress - what has already been achieved and what still needs to be done.</li>
+                        <li><strong>The third stage</strong> is launched in November-December, and its purpose is to summarize the past year.</li>
+                    </ol>
+                </div>
+
+                <p>But this does not mean that nothing needs to be done between stages. On the contrary, this is when the main self-development work takes place - you read books, watch educational videos, apply the knowledge and skills gained in practice, etc.</p>
+
+                <div class="warning">
+                    <p class="warning-text"><strong>Important:</strong> Filling out the PDP is not a request for training. This is your personal development plan. Training can be one of the constituent elements of the plan. You can learn more about this in the online course in LMS.</p>
+                </div>
+
+                <p>We wish you successful application of PDP in your work and hope that the guide will become a useful resource for your development. If you have questions or need additional support, do not hesitate to contact our e-learning team at: <strong>elearning.team@airastana.com</strong>.</p>
+            </div>
+
+            <div class="guide-sections">
+                <!-- Access Section -->
+                <div class="guide-section">
+                    <h2 class="steps-title">PDP System Access</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'access-step-1-en')">
+                            <div class="step-number">1</div>
+                            <div class="step-title">KC HR Login</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="access-step-1-en">
+                            <p class="step-text">PDP (Personal Development Plan) can be opened via the KC HR website, in the <strong>"Self-service employee"</strong> section – <strong>"My PDP"</strong>.</p>
+                            <img src="pdp-kc-hr-access.png" alt="KC HR system access" class="step-image">
+                            <div class="step-highlight">
+                                Use the "Self-service employee" section to access your PDP.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'access-step-2-en')">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Selecting PDP Form</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="access-step-2-en">
+                            <p class="step-text">In the opened window there is a list of all PDP forms for each year. Click on the needed form to open it (only after Appraisal).</p>
+                            <img src="pdp-forms-list.png" alt="List of PDP forms by year" class="step-image">
+                            <div class="important-note">
+                                <strong>Important:</strong> The PDP form can only be opened after completing the Appraisal procedure.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'access-step-3-en')">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Form Structure</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="access-step-3-en">
+                            <p class="step-text">There are 3 parts of the form:</p>
+                            <img src="pdp-form-structure.png" alt="PDP form structure with three sections" class="step-image">
+                            <div class="substep">
+                                <h4>a. Employee questions</h4>
+                                <p class="step-text">Section for your answers about development plans.</p>
+                            </div>
+                            <div class="substep">
+                                <h4>b. Manager questions</h4>
+                                <p class="step-text">Section for your manager's answers.</p>
+                            </div>
+                            <div class="substep">
+                                <h4>c. Competences</h4>
+                                <p class="step-text">Section for selecting competencies for development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- First Stage Section -->
+                <div class="guide-section">
+                    <h2 class="steps-title">First Stage (Beginning of Year)</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stage1-step-1-en')">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Answering Questions</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stage1-step-1-en">
+                            <p class="step-text">In the first stage, at the beginning of the year, you need to:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Answer 2 questions about your development plan</li>
+                                <li>Choose competencies to improve</li>
+                            </ul>
+                            <img src="pdp-employee-questions.png" alt="Employee questions in PDP" class="step-image">
+                            <div class="step-highlight">
+                                Please note that your appraisal score is already uploaded into the form, and you need to choose topics based on it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stage1-step-2-en')">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Selecting Competencies</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stage1-step-2-en">
+                            <p class="step-text">For competencies with score less than 2.6 it is mandatory to choose at least one topic. To choose the topic you need to tick on <strong>"Employee choice"</strong> field.</p>
+                            <img src="pdp-competence-selection.png" alt="Competence selection in PDP form" class="step-image">
+                            <div class="important-note">
+                                <strong>Recommendation:</strong> We recommend choosing for development 1-2 competencies (without mandatory competencies on the Appraisal result) and 3-4 topics at all.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stage1-step-3-en')">
+                            <div class="step-number">6</div>
+                            <div class="step-title">Sending to Manager</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stage1-step-3-en">
+                            <p class="step-text">After that you need to send the form to your direct manager for approval by clicking <strong>"Send for approval"</strong> button.</p>
+                            <img src="pdp-send-approval.png" alt="Sending form for manager approval" class="step-image">
+                            <div class="step-highlight">
+                                You can select topics of interest and click on them to be taken to the course page in LMS for more information about the course and enrollment.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manager Section -->
+                <div class="guide-section">
+                    <h2 class="steps-title">For Managers</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'manager-step-1-en')">
+                            <div class="step-number">7</div>
+                            <div class="step-title">Team PDP Access</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="manager-step-1-en">
+                            <p class="step-text">If you are the manager you have an access to all PDP forms for your team through <strong>"Self-service manager"</strong> – <strong>"My team PDP"</strong>.</p>
+                            <img src="pdp-manager-access.png" alt="Manager access to team PDP" class="step-image">
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'manager-step-2-en')">
+                            <div class="step-number">8</div>
+                            <div class="step-title">Working with Employee Form</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="manager-step-2-en">
+                            <p class="step-text">In the form you will see all answers entered by the employee. At this stage you need to:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Answer 2 questions about your employee development</li>
+                                <li>Choose the priority areas of his/her development</li>
+                                <li>Add comments to chosen topics</li>
+                            </ul>
+                            <img src="pdp-manager-questions.png" alt="Manager questions in PDP" class="step-image">
+                            <div class="step-highlight">
+                                Note that you can choose topics which are different to your employee choice. The system will automatically color the mutual choice.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'manager-step-3-en')">
+                            <div class="step-number">9</div>
+                            <div class="step-title">Adding Comments</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="manager-step-3-en">
+                            <p class="step-text">Also you can add some free-text comment for each chosen topic, we recommend to use this field to specify the details of development plan, for example to add concrete tasks.</p>
+                            <img src="pdp-manager-comments.png" alt="Adding comments by manager" class="step-image">
+                            <div class="important-note">
+                                <strong>We strongly recommend:</strong> Each manager and their employee discuss all comments, objectives and the selection of topics/competencies to be developed before making any entries in the PDP.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subsequent Stages -->
+                <div class="guide-section">
+                    <h2 class="steps-title">Subsequent Stages</h2>
+                    
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stages-step-1-en')">
+                            <div class="step-number">10</div>
+                            <div class="step-title">Second Stage (Mid-Year)</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stages-step-1-en">
+                            <p class="step-text">In the middle of the year, the second stage of work with the PDP form begins. System will send e-mail notification to the manager and will ask to meet with the employee to discuss progress.</p>
+                            <p class="step-text">The manager answers 2 questions:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>What the employee had successfully achieved over the past six months</li>
+                                <li>What skills still need to be developed</li>
+                            </ul>
+                            <img src="pdp-second-stage.png" alt="Second stage PDP work" class="step-image">
+                            <div class="step-highlight">
+                                If there are changes in the employee's development, the plan can be modified at this stage.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stages-step-2-en')">
+                            <div class="step-number">11</div>
+                            <div class="step-title">Third Stage (End of Year)</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stages-step-2-en">
+                            <p class="step-text">The third (and final) stage of filling out the form begins at the end of the year. Its purpose is to summarize the whole progress. The process is completely similar to the second stage.</p>
+                            <p class="step-text">At the end of the year, it is necessary to check what developmental outcomes have been achieved according to the previously completed plan.</p>
+                            <img src="pdp-third-stage.png" alt="Third stage PDP work" class="step-image">
+                            <div class="important-note">
+                                <strong>Recommendation:</strong> We recommend that these outcomes are taken into account when completing the next PDP to track progress as completed forms are retained.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-accordion">
+                        <button class="step-button" onclick="toggleStep(this, 'stages-step-3-en')">
+                            <div class="step-number">12</div>
+                            <div class="step-title">Completion and Download</div>
+                            <div class="step-arrow">▼</div>
+                        </button>
+                        <div class="step-content" id="stages-step-3-en">
+                            <p class="step-text">The first step in completing the Personal Development Plan is now complete. You can download the form you need by clicking on it once and pressing the appropriate button at the beginning, then print it out, and proceed to fulfil all the steps indicated in the plan.</p>
+                            <img src="pdp-download-form.png" alt="Downloading completed PDP form" class="step-image">
+                            <div class="step-highlight">
+                                After you complete filling in the form it will be sent back to the employee for familiarization with all comments.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="contact-info">
+                    <p>For questions, contact:</p>
+                    <p class="contact-email">elearning.team@airastana.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kazakh Content -->
+        <div id="content-kz" class="hidden">
+            <div class="hero-section">
+                <h1 class="hero-title">PDP Manual</h1>
+                <p class="hero-subtitle">Personal Development Plan - Жеке даму жоспарын толтыру бойынша толық нұсқаулық</p>
+            </div>
+
+            <div class="description-section">
+                <h3>PDP бағдарламасы туралы</h3>
+                <p>Бұл бөлімде сіз PDP (Personal Development Plan) - жеке даму жоспарын дұрыс толтыру туралы толық ақпарат таба аласыз. Нұсқаулық сіздің PDP-ны тиімді толтыруға және оны жеке және кәсіби мақсаттарыңызға жету құралы ретінде пайдалануға көмектесу үшін қадамдық нұсқаулар мен ұсыныстарды ұсынады.</p>
+
+                <p>PDP - бұл өзін-өзі талдау және жоспарлау құралы, ол адамдарға өз күшті және әлсіз жақтарын сезінуге, дамығысы келетін салаларды анықтауға және мақсаттарына жету үшін нақты қадамдар жасауға мүмкіндік береді. Ол жеке және кәсіби өсу үшін құрылым мен бағыт жасауға көмектеседі, сондай-ақ даму процесінде фокус пен мотивация қамтамасыз етеді.</p>
+
+                <p><strong>PDP процесі бүкіл жылды алады және 3 кезеңге бөлінеді:</strong></p>
+                <div class="stages-list">
+                    <ol>
+                        <li><strong>Бірінші кезең</strong> жыл басында басшыңызбен кездесіп, ағымдағы жылға өзін-өзі дамыту мақсаттарын қою кезінде орын алады.</li>
+                        <li><strong>Екінші кезең</strong> жаз ортасында жолдың жартысы өткеннен кейін басталады. Басшыңызбен бірге сіз прогресті талқылайсыз - не іске асырылды және не істеу керек.</li>
+                        <li><strong>Үшінші кезең</strong> қараша-желтоқсанда іске қосылады және оның мақсаты - өткен жылды қорытындылау.</li>
+                    </ol>
+                </div>
+
+                <p>Бірақ бұл кезеңдер арасында ештеме істеудің қажеті жоқ дегенді білдірмейді. Керісінше, осы уақытта өзін-өзі дамытудың негізгі жұмысы жүреді - сіз кітаптарды оқисыз, оқыту бейнелерін көресіз, алынған білім мен дағдыларды практикада қолданасыз және т.б.</p>
+
+                <div class="warning">
+                    <p class="warning-text"><strong>Маңызды:</strong> PDP толтыру оқыту өткізуге сұрау емес. Бұл сіздің жеке даму жоспарыңыз. Оқыту жоспардың құрамдас элементтерінің бірі болуы мүмкін. Бұл туралы толығырақ LMS-тегі онлайн курстан біле аласыз.</p>
+                </div>
+
+                <p>Біз сізге жұмысыңызда PDP-ны сәтті қолдануды тілейміз және нұсқаулық сіздің дамуыңыз үшін пайдалы ресурс болады деп үміттенеміз. Сұрақтарыңыз болса немесе қосымша қолдау қажет болса, біздің e-learning командасына хабарласуды ұятпаңыз: <strong>elearning.team@airastana.com</strong>.</p>
+            </div>
+
+            <div class="footer">
+                <div class="contact-info">
+                    <p>Сұрақтар бойынша:</p>
+                    <p class="contact-email">elearning.team@airastana.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLanguage = 'ru';
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('language-dropdown');
+            const button = document.querySelector('.dropdown-btn');
+            
+            dropdown.classList.toggle('show');
+            button.classList.toggle('active');
+        }
+
+        function switchLanguage(lang, displayName) {
+            currentLanguage = lang;
+            
+            // Update dropdown
+            document.getElementById('selected-language').textContent = displayName;
+            
+            // Update selected item in dropdown
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+
+            // Hide all content
+            document.getElementById('content-ru').classList.add('hidden');
+            document.getElementById('content-en').classList.add('hidden');
+            document.getElementById('content-kz').classList.add('hidden');
+            
+            // Show selected language content
+            document.getElementById('content-' + lang).classList.remove('hidden');
+            
+            // Close all open steps when switching language
+            document.querySelectorAll('.step-content.active').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.step-button.active').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Close dropdown
+            document.getElementById('language-dropdown').classList.remove('show');
+            document.querySelector('.dropdown-btn').classList.remove('active');
+        }
+
+        function toggleStep(button, contentId) {
+            const content = document.getElementById(contentId);
+            const isActive = content.classList.contains('active');
+            
+            // Close all other steps
+            document.querySelectorAll('.step-content').forEach(c => {
+                if (c !== content) {
+                    c.classList.remove('active');
+                }
+            });
+            document.querySelectorAll('.step-button').forEach(b => {
+                if (b !== button) {
+                    b.classList.remove('active');
+                }
+            });
+            
+            // Toggle current step
+            if (isActive) {
+                content.classList.remove('active');
+                button.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                button.classList.add('active');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.language-dropdown');
+            if (!dropdown.contains(event.target)) {
+                document.getElementById('language-dropdown').classList.remove('show');
+                document.querySelector('.dropdown-btn').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
